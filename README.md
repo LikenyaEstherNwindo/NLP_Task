@@ -1,8 +1,10 @@
+# NLP-Tract-Task
+NLP Task Portfolio — News &amp; Text Intelligence A collection of end-to-end Natural Language Processing projects built with Python, covering the full ML pipeline from raw data to evaluation. Each task uses real-world datasets loaded directly from Hugging Face and is implemented in a clean and well structured manner
 
 
-#  NLP Task Portfolio — News & Text Intelligence
+Here's a comprehensive README for your repo:
 
-A collection of end-to-end Natural Language Processing projects built with Python, covering the full ML pipeline from raw data to evaluation. Each task uses real-world datasets loaded directly from Hugging Face and is implemented in a clean, well-commented Jupyter Notebook.
+
 
 ---
 
@@ -29,9 +31,9 @@ Automatically classify news articles into one of four categories: **World, Sport
 
 ### Approach
 - **Preprocessing** — Custom `TextPreprocessor` class handles lowercasing, URL/HTML removal, tokenization, stopword removal, and lemmatization using NLTK
-- **Feature Engineering** — TF-IDF vectorization with unigrams + bigrams (50,000 features, sublinear TF scaling)
-- **Models Trained** — Logistic Regression, Linear SVM, Random Forest, XGBoost, LightGBM
-- **Evaluation** — Accuracy, classification report, confusion matrix
+- **Feature Engineering** - TF-IDF vectorization with unigrams + bigrams (50,000 features, sublinear TF scaling)
+- **Models Trained** - Logistic Regression, Linear SVM, Random Forest, XGBoost, LightGBM
+- **Evaluation** - Accuracy, classification report, confusion matrix
 
 ### Key Results
 - All 5 models trained and compared on the same test set
@@ -191,9 +193,9 @@ Build an intelligent resume screening system that **ranks resumes against a job 
 - **Job Descriptions** — `jacob-hugging-face/job-descriptions` (Hugging Face) — real job postings with titles and full descriptions
 
 ### Approach
-- **Embeddings** — `all-MiniLM-L6-v2` Sentence Transformer converts both resumes and job descriptions into 384-dimensional semantic vectors
-- **Matching** — Cosine similarity between the job embedding and all resume embeddings
-- **Ranking** — Resumes sorted from highest to lowest similarity score with match labels:
+- **Embeddings** - `all-MiniLM-L6-v2` Sentence Transformer converts both resumes and job descriptions into 384-dimensional semantic vectors
+- **Matching** - Cosine similarity between the job embedding and all resume embeddings
+- **Ranking** - Resumes sorted from highest to lowest similarity score with match labels:
   - 🟢 `>= 0.70` Strong Match
   - 🟡 `>= 0.50` Good Match
   - 🟠 `>= 0.35` Partial Match
@@ -204,13 +206,13 @@ Traditional keyword matching fails when a resume says *"Python developer with ML
 
 ### Key Features
 - Resumes encoded **once** and reused across all job descriptions (efficient)
-- `screen_resumes(job_description, top_n=10)` — returns ranked DataFrame with scores and justifications
+- `screen_resumes(job_description, top_n=10)` - returns ranked DataFrame with scores and justifications
 - Batch mode — screen multiple jobs at once
-- **Similarity heatmap** — jobs × resume categories matrix showing which resume types match which jobs best
+- **Similarity heatmap** - jobs × resume categories matrix showing which resume types match which jobs best
 
 ### Bonus
 - **Named Entity Extraction** — spaCy NER pulls out organisations and locations from top resumes; keyword matching identifies technical skills (Python, SQL, TensorFlow, etc.)
-- **`match_single_resume()`** — paste your own resume and a job description to get an instant match score and skill analysis
+- **`match_single_resume()`** - paste your own resume and a job description to get an instant match score and skill analysis
 
 ### Libraries
 `sentence-transformers` · `scikit-learn` · `spacy` · `datasets` · `pandas` · `matplotlib` · `seaborn`
@@ -233,12 +235,13 @@ Traditional keyword matching fails when a resume says *"Python developer with ML
 ---
 
 <a name="setup"></a>
-##  Setup
+## ⚙️ Setup
 
 ### Requirements
 - Python 3.9+
 - Anaconda (recommended) or any virtual environment
 - Jupyter Notebook or JupyterLab
+<img width="2685" height="1508" alt="wordclouds" src="https://github.com/user-attachments/assets/dc78d046-5ed9-491c-802a-6e962c305bb3" />
 
 ### Install all dependencies
 ```bash
@@ -253,19 +256,19 @@ python -m spacy download en_core_web_lg
 
 **`Unknown task summarization` or `Unknown task question-answering`**
 > Newer versions of `transformers` (v4.41+) removed these pipeline tasks.
-> All notebooks in this repo use `AutoTokenizer` + task-specific model classes directly — no pipeline needed.
+> All notebooks in this repo use `AutoTokenizer` + task-specific model classes directly - no pipeline needed.
 
 **`SentencePiece` error with Pegasus**
 > Pegasus tokenizer requires `sentencepiece` + `protobuf`. If you encounter this error, either install both packages and restart your kernel, or use `facebook/bart-base` as a drop-in replacement (already done in this repo).
 
 **Rust / tokenizers build error on Windows**
-> Do not pin `transformers` to older versions — this triggers a Rust compilation of `tokenizers==0.19`. Use the latest transformers version with the direct model loading approach used in this repo.
+> Do not pin `transformers` to older versions - this triggers a Rust compilation of `tokenizers==0.19`. Use the latest transformers version with the direct model loading approach used in this repo.
 
 ---
 
-##  Project Structure
+## 📁 Project Structure
 ```
-📦 nlp-task-portfolio/
+ nlp-task-portfolio/
  ┣ 📓 task2_news_category_classification.ipynb
  ┣ 📓 task3_fake_news_detection.ipynb
  ┣ 📓 task4_ner_news_articles.ipynb
@@ -273,9 +276,14 @@ python -m spacy download en_core_web_lg
  ┣ 📓 task7_text_summarization.ipynb
  ┣ 📓 task8_resume_screening_nlp.ipynb
  ┣ 📄 README.md
- ┗ 📄 train.txt / valid.txt / test.txt  ← CoNLL-2003 (Task 4)
+ ┗ 📄 train.txt / valid.txt / test.txt  <- CoNLL-2003 (Task 4)
 ```
 
 ---
 
-> **Note:** All datasets except CoNLL-2003 are loaded automatically from Hugging Face — no manual downloads required. For Task 4, place the CoNLL-2003 files in the same directory as the notebook before running.
+> **Note:** All datasets except CoNLL-2003 are loaded automatically from Hugging Face . no manual downloads required. For Task 4, place the CoNLL-2003 files in the same directory as the notebook before running.
+<img width="1891" height="735" alt="tag_distribution" src="https://github.com/user-attachments/assets/25f7c7cc-9c50-4cbd-bdd8-60261bd42cdb" />
+
+<img width="1785" height="737" alt="model_comparison" src="https://github.com/user-attachments/assets/f72311f8-e07f-4b8a-a78e-c60e4238d28b" />
+<img width="1065" height="887" alt="confusion_matrix" src="https://github.com/user-attachments/assets/a42625bb-8119-4559-8d85-19edee9cc7c0" />
+
